@@ -12,7 +12,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @With
@@ -23,6 +22,7 @@ public class Skill extends AuditModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
     @NotNull
     @NotBlank
     @Size(max = 60)
