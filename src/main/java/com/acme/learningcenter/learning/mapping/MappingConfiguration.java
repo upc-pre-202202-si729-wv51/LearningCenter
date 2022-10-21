@@ -11,4 +11,14 @@ public class MappingConfiguration {
         return new StudentMapper();
     }
 
+    @Bean
+    public SkillMapper skillMapper() {
+        return new SkillMapper();
+    }
+
+    @Bean
+    public CriterionMapper criterionMapper() {
+        return new CriterionMapper();
+    }
+
 }
