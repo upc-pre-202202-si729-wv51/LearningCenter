@@ -14,9 +14,4 @@ public interface CriterionService {
 
     Page<Criterion> getAllBySkillId(Long skillId, Pageable pageable);
 
-    Criterion create(Long skillId, Criterion criterion);
-
-    Criterion update(Long skillId, Long criterionId, Criterion criterion);
-
-    ResponseEntity<?> delete(Long skillId, Long criterionId);
 }

@@ -1,5 +1,6 @@
 package com.acme.learningcenter.learning.domain.service;
 
+import com.acme.learningcenter.learning.domain.model.entity.Criterion;
 import com.acme.learningcenter.learning.domain.model.entity.Skill;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,4 +15,6 @@ public interface SkillService {
     Skill create(Skill skill);
     Skill update(Long id, Skill skill);
     ResponseEntity<?> delete(Long skillId);
+
+    Criterion addCriterionToSkill(Long skillId, String criterionName);
 }

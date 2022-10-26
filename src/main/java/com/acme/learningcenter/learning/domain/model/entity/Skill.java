@@ -1,6 +1,7 @@
 package com.acme.learningcenter.learning.domain.model.entity;
 
 import com.acme.learningcenter.shared.domain.model.AuditModel;
+import com.acme.learningcenter.shared.exception.ResourceNotFoundException;
 import com.acme.learningcenter.shared.exception.ResourceValidationException;
 import lombok.*;
 
@@ -55,4 +56,6 @@ public class Skill extends AuditModel {
                 .withSkill(this));
         return this;
     }
+
+
 }

@@ -1,6 +1,8 @@
 package com.acme.learningcenter.learning.service;
 
+import com.acme.learningcenter.learning.domain.model.entity.Criterion;
 import com.acme.learningcenter.learning.domain.model.entity.Skill;
+import com.acme.learningcenter.learning.domain.persistence.CriterionRepository;
 import com.acme.learningcenter.learning.domain.persistence.SkillRepository;
 import com.acme.learningcenter.learning.domain.service.SkillService;
 import com.acme.learningcenter.shared.exception.ResourceNotFoundException;
@@ -22,10 +24,13 @@ public class SkillServiceImpl implements SkillService {
 
     private final SkillRepository skillRepository;
 
+    private final CriterionRepository criterionRepository;
+
     private final Validator validator;
 
-    public SkillServiceImpl(SkillRepository skillRepository, Validator validator) {
+    public SkillServiceImpl(SkillRepository skillRepository, CriterionRepository criterionRepository, Validator validator) {
         this.skillRepository = skillRepository;
+        this.criterionRepository = criterionRepository;
         this.validator = validator;
     }
 
@@ -78,6 +83,15 @@ public class SkillServiceImpl implements SkillService {
         return skillRepository.findById(skillId).map(skill -> {
             skillRepository.delete(skill);
             return ResponseEntity.ok().build();
+        }).orElseThrow(() -> new ResourceNotFoundException(ENTITY, skillId));
+    }
+
+    @Override
+    public Criterion addCriterionToSkill(Long skillId, String criterionName) {
+        return skillRepository.findById(skillId).map(skill -> {
+            skillRepository.save(skill.addCriterion(criterionName));
+            return criterionRepository.findByNameAndSkillId(criterionName, skillId)
+                    .orElseThrow(() -> new ResourceNotFoundException("Criterion with name not found for skill"));
         }).orElseThrow(() -> new ResourceNotFoundException(ENTITY, skillId));
     }
 }
