@@ -56,6 +56,12 @@ public class SkillServiceImpl implements SkillService {
         Set<ConstraintViolation<Skill>> violations = validator.validate(skill);
 
         if (!violations.isEmpty())
+            throw new ResourceValidationException(ENTITY, violations);
+
+
+        Optional<Skill> skillWithName = skillRepository.findByName(skill.getName());
+
+        if (skillWithName.isPresent())
             throw new ResourceValidationException(ENTITY, "An skill with the same name already exists.");
 
         return skillRepository.save(skill);
