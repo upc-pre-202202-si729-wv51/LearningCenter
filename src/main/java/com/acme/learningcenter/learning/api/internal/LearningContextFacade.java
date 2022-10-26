@@ -4,6 +4,6 @@ import com.acme.learningcenter.learning.domain.model.entity.Skill;
 
 import java.util.List;
 
-public interface LearningFacade {
+public interface LearningContextFacade {
     List<Skill> getAllSkills();
 }

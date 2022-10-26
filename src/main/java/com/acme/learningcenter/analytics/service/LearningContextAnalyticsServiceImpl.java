@@ -1,19 +1,19 @@
 package com.acme.learningcenter.analytics.service;
 
 import com.acme.learningcenter.analytics.domain.service.LearningContextAnalyticsService;
-import com.acme.learningcenter.learning.api.internal.LearningFacade;
+import com.acme.learningcenter.learning.api.internal.LearningContextFacade;
 import org.springframework.stereotype.Service;
 
 @Service
 public class LearningContextAnalyticsServiceImpl implements LearningContextAnalyticsService {
-    private final LearningFacade learningFacade;
+    private final LearningContextFacade learningContextFacade;
 
-    public LearningContextAnalyticsServiceImpl(LearningFacade learningFacade) {
-        this.learningFacade = learningFacade;
+    public LearningContextAnalyticsServiceImpl(LearningContextFacade learningContextFacade) {
+        this.learningContextFacade = learningContextFacade;
     }
 
     @Override
     public int getTotalLearningSkills() {
-        return learningFacade.getAllSkills().size();
+        return learningContextFacade.getAllSkills().size();
     }
 }
