@@ -2,13 +2,11 @@ package com.acme.learningcenter.learning.service;
 
 import com.acme.learningcenter.learning.domain.model.entity.Criterion;
 import com.acme.learningcenter.learning.domain.persistence.CriterionRepository;
-import com.acme.learningcenter.learning.domain.persistence.SkillRepository;
 import com.acme.learningcenter.learning.domain.service.CriterionService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.validation.Validator;
 import java.util.List;
 
 @Service
