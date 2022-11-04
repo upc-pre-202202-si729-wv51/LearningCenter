@@ -3,6 +3,7 @@ package com.acme.learningcenter.learning.api.rest;
 import com.acme.learningcenter.learning.domain.service.CriterionService;
 import com.acme.learningcenter.learning.mapping.CriterionMapper;
 import com.acme.learningcenter.learning.resource.CriterionResource;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/criteria")
+@Tag(name = "Criteria", description = "Create, read, update and delete criteria")
 public class CriteriaController {
     private final CriterionService criterionService;
     private final CriterionMapper mapper;
