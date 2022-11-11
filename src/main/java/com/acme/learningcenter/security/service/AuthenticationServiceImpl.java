@@ -2,7 +2,7 @@ package com.acme.learningcenter.security.service;
 
 import com.acme.learningcenter.security.domain.service.communication.AuthenticateRequest;
 import com.acme.learningcenter.security.domain.service.communication.AuthenticateResponse;
-import com.acme.learningcenter.security.domain.service.communication.AuthenticationService;
+import com.acme.learningcenter.security.domain.service.AuthenticationService;
 import com.acme.learningcenter.security.domain.service.communication.RegisterRequest;
 import com.acme.learningcenter.security.middleware.JwtHandler;
 import com.acme.learningcenter.security.middleware.UserDetailsImpl;
